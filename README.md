@@ -2,12 +2,13 @@
 
 > Plataforma de empregabilidade e capacitação profissional — ODS 8 e ODS 10
 
+🔗 **Acesse o projeto online:** [http://conectaoportunidades.duckdns.org](http://conectaoportunidades.duckdns.org)
 ## Stack
 
 | Camada | Tecnologia |
 |---|---|
 | Banco de Dados | MySQL 8 |
-| Backend | Java 21 + Spring Boot 3 |
+| Backend | Java 17 + Spring Boot 3 |
 | Frontend | React 18 + Vite + Bootstrap 5 |
 | Deploy | Docker Compose + Oracle Cloud Free Tier |
 
@@ -35,7 +36,7 @@ ProjetoFinalRecolde/
 ## Rodando em desenvolvimento
 
 ### Pré-requisitos
-- Java 21+
+- Java 17
 - Node.js 20+
 - MySQL 8 rodando localmente
 
@@ -100,7 +101,7 @@ sudo certbot --nginx -d seudominio.com.br
 | Perfil | E-mail | Senha |
 |---|---|---|
 | Admin | admin@conecta.com | admin123 |
-| Empresa Demo | empresa@demo.com | empresa123 |
+| Empresa Demo | empresa@demo.com | admin123 |
 
 > ⚠️ Altere as senhas em produção!
 
