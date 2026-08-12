@@ -8,6 +8,8 @@ services:
     environment:
       MYSQL_DATABASE: conecta_db
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: conecta_user
+      MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
       - mysql_data:/var/lib/mysql
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -26,7 +28,7 @@ services:
     restart: unless-stopped
     environment:
       DB_HOST: mysql
-      DB_USER: root
+      DB_USER: conecta_user
       DB_PASSWORD: ${DB_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
     ports:
