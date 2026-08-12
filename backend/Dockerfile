@@ -2,7 +2,7 @@ FROM eclipse-temurin:17-jdk AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
-RUN apt-get update && apt-get install -y maven && mvn package -DskipTests
+RUN apt-get update && apt-get install -y maven && MAVEN_OPTS="-Xmx256m" mvn package -DskipTests
 
 FROM eclipse-temurin:17-jre
 WORKDIR /app
