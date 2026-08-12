@@ -1,0 +1,49 @@
+services:
+
+  # ── MySQL ─────────────────────────────────────────────────
+  mysql:
+    image: mysql:8.0
+    container_name: conecta-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: conecta_db
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${DB_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Backend Spring Boot ────────────────────────────────────
+  backend:
+    build: ./backend
+    container_name: conecta-backend
+    restart: unless-stopped
+    environment:
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  # ── Frontend React + Nginx ─────────────────────────────────
+  frontend:
+    build: ./frontend
+    container_name: conecta-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:

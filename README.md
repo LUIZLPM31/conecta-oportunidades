@@ -1,0 +1,123 @@
+# Conecta Oportunidades 🚀
+
+> Plataforma de empregabilidade e capacitação profissional — ODS 8 e ODS 10
+
+## Stack
+
+| Camada | Tecnologia |
+|---|---|
+| Banco de Dados | MySQL 8 |
+| Backend | Java 21 + Spring Boot 3 |
+| Frontend | React 18 + Vite + Bootstrap 5 |
+| Deploy | Docker Compose + Oracle Cloud Free Tier |
+
+---
+
+## Estrutura do Projeto
+
+```
+ProjetoFinalRecolde/
+├── database/
+│   └── init.sql             # Script SQL com tabelas e dados iniciais
+├── backend/                 # API Spring Boot
+│   ├── src/
+│   └── pom.xml
+├── frontend/                # SPA React
+│   ├── src/
+│   └── package.json
+├── docker-compose.yml
+├── .env.example
+└── README.md
+```
+
+---
+
+## Rodando em desenvolvimento
+
+### Pré-requisitos
+- Java 21+
+- Node.js 20+
+- MySQL 8 rodando localmente
+
+### Backend
+```bash
+cd backend
+# Configure as variáveis no application.properties ou exporte:
+export DB_HOST=localhost DB_USER=root DB_PASSWORD=suasenha
+
+mvn spring-boot:run
+# API disponível em: http://localhost:8080
+# Swagger: http://localhost:8080/swagger-ui.html
+```
+
+### Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+# App disponível em: http://localhost:5173
+```
+
+---
+
+## Deploy na Oracle Cloud Free Tier
+
+### 1. Criar VM
+- Shape: `VM.Standard.E2.1.Micro` (Always Free)
+- OS: Ubuntu 22.04
+- Liberar portas na Security List: `22`, `80`, `443`
+
+### 2. Instalar Docker na VM
+```bash
+sudo apt update && sudo apt install -y docker.io docker-compose-plugin
+sudo usermod -aG docker $USER
+```
+
+### 3. Clonar e configurar
+```bash
+git clone <url-do-repo>
+cd ProjetoFinalRecolde
+
+cp .env.example .env
+nano .env   # preencher DB_PASSWORD e JWT_SECRET
+```
+
+### 4. Subir os containers
+```bash
+docker compose up -d --build
+```
+
+### 5. (Opcional) SSL com Let's Encrypt
+```bash
+sudo apt install -y certbot python3-certbot-nginx
+sudo certbot --nginx -d seudominio.com.br
+```
+
+---
+
+## Credenciais padrão (desenvolvimento)
+
+| Perfil | E-mail | Senha |
+|---|---|---|
+| Admin | admin@conecta.com | admin123 |
+| Empresa Demo | empresa@demo.com | empresa123 |
+
+> ⚠️ Altere as senhas em produção!
+
+---
+
+## CRUDs implementados
+
+| CRUD | Entidade | Rotas |
+|---|---|---|
+| 1 | Usuários | `/api/usuarios` |
+| 2 | Vagas | `/api/vagas` |
+| 3 | Capacitações | `/api/capacitacoes` |
+| 4 (bônus) | Candidaturas | `/api/candidaturas` |
+
+---
+
+## ODS Atendidas
+
+- 🟫 **ODS 8** — Trabalho Decente e Crescimento Econômico
+- 🟪 **ODS 10** — Redução das Desigualdades
