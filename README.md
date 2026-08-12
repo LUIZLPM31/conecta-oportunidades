@@ -61,12 +61,12 @@ npm run dev
 
 ---
 
-## Deploy na Oracle Cloud Free Tier
+## Deploy na Oracle Cloud
 
 ### 1. Criar VM
-- Shape: `VM.Standard.E2.1.Micro` (Always Free)
+- Shape: `VM.Standard.E2.1.Micro` 
 - OS: Ubuntu 22.04
-- Liberar portas na Security List: `22`, `80`, `443`
+
 
 ### 2. Instalar Docker na VM
 ```bash
@@ -88,13 +88,9 @@ nano .env   # preencher DB_PASSWORD e JWT_SECRET
 docker compose up -d --build
 ```
 
-### 5. (Opcional) SSL com Let's Encrypt
-```bash
-sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d seudominio.com.br
-```
 
----
+
+
 
 ## Credenciais padrão (desenvolvimento)
 
