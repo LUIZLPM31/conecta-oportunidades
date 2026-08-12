@@ -30,20 +30,10 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
     ports:
-      - "8080:8080"
+      - "80:8080"
     depends_on:
       mysql:
         condition: service_healthy
-
-  # ── Frontend React + Nginx ─────────────────────────────────
-  frontend:
-    build: ./frontend
-    container_name: conecta-frontend
-    restart: unless-stopped
-    ports:
-      - "80:80"
-    depends_on:
-      - backend
 
 volumes:
   mysql_data:
