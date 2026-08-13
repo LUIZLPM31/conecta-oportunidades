@@ -82,7 +82,7 @@ VALUES (
     'admin@conecta.com',
     '$2a$10$pz00FiK4v11faflAlvH0ZeucbDRYQO5O6F2taD/wdjk.h2QufvnTS', -- admin123 (BCrypt)
     'ADMIN',
-    'São Paulo'
+    'Porto Alegre'
 );
 
 -- Empresa (senha: empresa123)
@@ -92,8 +92,8 @@ VALUES (
     'empresa@demo.com',
     '$2a$10$pz00FiK4v11faflAlvH0ZeucbDRYQO5O6F2taD/wdjk.h2QufvnTS', -- admin123
     'EMPRESA',
-    '(11) 99999-0000',
-    'São Paulo'
+    '(51) 99999-0000',
+    'Porto Alegre'
 );
 
 -- Vagas -

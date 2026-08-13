@@ -61,12 +61,18 @@ export default function DashboardCandidato() {
       {/* Resumo */}
       <div className="row g-3 mb-4">
         {[
-          { label: 'Candidaturas', val: candidaturas.length, icon: 'bi-send', cor: 'text-primary' },
-          { label: 'Vagas disponíveis', val: vagas.length, icon: 'bi-briefcase', cor: 'text-success' },
-          { label: 'Cursos', val: cursos.length, icon: 'bi-mortarboard', cor: 'text-warning' },
+          { key: 'candidaturas', label: 'Candidaturas', val: candidaturas.length, icon: 'bi-send', cor: 'text-primary' },
+          { key: 'vagas', label: 'Vagas disponíveis', val: vagas.length, icon: 'bi-briefcase', cor: 'text-success' },
+          { key: 'cursos', label: 'Cursos', val: cursos.length, icon: 'bi-mortarboard', cor: 'text-warning' },
         ].map((s) => (
           <div key={s.label} className="col-md-4">
-            <div className="card p-3 d-flex flex-row align-items-center gap-3">
+            <div 
+              className="card p-3 d-flex flex-row align-items-center gap-3 shadow-sm"
+              onClick={() => setAba(s.key)}
+              style={{ cursor: 'pointer', transition: 'transform 0.2s' }}
+              onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-3px)'}
+              onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+            >
               <i className={`bi ${s.icon} fs-2 ${s.cor}`}></i>
               <div>
                 <div className="fw-bold fs-4">{s.val}</div>
