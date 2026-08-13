@@ -109,4 +109,5 @@ VALUES
     ('Excel do Básico ao Avançado', 'Aprenda planilhas, fórmulas, gráficos e análise de dados com Excel.', 20, 'https://cursa.com.br/curso-de-excel', 'Cursa', TRUE),
     ('Introdução à Programação com Python', 'Lógica de programação e primeiros passos com Python para iniciantes.', 40, 'https://www.cursoemvideo.com/curso/python-3-mundo-1/', 'Curso em Vídeo', TRUE),
     ('Comunicação e Oratória Profissional', 'Técnicas para comunicação assertiva, apresentações e entrevistas de emprego.', 10, 'https://www.ev.org.br/', 'Fundação Bradesco', TRUE),
-    ('Empreendedorismo e Negócios Digitais', 'Como iniciar um negócio digital com baixo investimento.', 30, 'https://sebrae.com.br/cursosonline', 'SEBRAE', TRUE);
+    ('Empreendedorismo e Negócios Digitais', 'Como iniciar um negócio digital com baixo investimento.', 30, 'https://sebrae.com.br/cursosonline', 'SEBRAE', TRUE),
+    ('IAgora! Formações de IA', 'Aprenda os conceitos fundamentais de Inteligência Artificial para o mercado de trabalho com as formações gratuitas da Recode.', 40, 'https://recode.org.br/', 'Recode', TRUE);
