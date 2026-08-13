@@ -1,4 +1,5 @@
 .env
+remote.env
 target/
 node_modules/
 dist/

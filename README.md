@@ -2,7 +2,7 @@
 
 > Plataforma de empregabilidade e capacitação profissional — ODS 8 e ODS 10
 
-🔗 **Acesse o projeto online:** [http://conectaoportunidades.duckdns.org](http://conectaoportunidades.duckdns.org)
+🔗 **Acesse o projeto online:** [https://conecta-oportunidades.vercel.app/](https://conecta-oportunidades.vercel.app/)
 ## Stack
 
 | Camada | Tecnologia |
