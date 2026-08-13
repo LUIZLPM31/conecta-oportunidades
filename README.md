@@ -43,12 +43,11 @@ ProjetoFinalRecolde/
 ### Backend
 ```bash
 cd backend
-# Configure as variáveis no application.properties ou exporte:
+
 export DB_HOST=localhost DB_USER=root DB_PASSWORD=suasenha
 
 mvn spring-boot:run
-# API disponível em: http://localhost:8080
-# Swagger: http://localhost:8080/swagger-ui.html
+
 ```
 
 ### Frontend
@@ -56,7 +55,7 @@ mvn spring-boot:run
 cd frontend
 npm install
 npm run dev
-# App disponível em: http://localhost:5173
+
 ```
 
 ---

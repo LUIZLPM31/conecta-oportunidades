@@ -17,7 +17,7 @@ export default function DashboardAdmin() {
   const [vagas, setVagas]       = useState([])
   const [cursos, setCursos]     = useState([])
   const [deleteInfo, setDelete] = useState({ id: null, tipo: null })
-  const [formCurso, setFormC]   = useState(CURSO_VAZIO)
+  const [formC, setFormC]       = useState(CURSO_VAZIO)
   const [editCursoId, setEditCI] = useState(null)
   const [loading, setLoading]   = useState(true)
 
