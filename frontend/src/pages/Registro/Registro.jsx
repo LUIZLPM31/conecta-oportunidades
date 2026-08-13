@@ -88,7 +88,7 @@ export default function Registro() {
                     <label className="form-label fw-semibold">Telefone</label>
                     <input
                       type="tel" id="reg-telefone" name="telefone"
-                      className="form-control" placeholder="(11) 99999-0000"
+                      className="form-control" placeholder="(51) 99999-0000"
                       value={form.telefone} onChange={handleChange}
                     />
                   </div>
@@ -97,7 +97,7 @@ export default function Registro() {
                     <label className="form-label fw-semibold">Cidade</label>
                     <input
                       type="text" id="reg-cidade" name="cidade"
-                      className="form-control" placeholder="São Paulo"
+                      className="form-control" placeholder="Porto Alegre"
                       value={form.cidade} onChange={handleChange}
                     />
                   </div>
