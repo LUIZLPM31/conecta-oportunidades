@@ -1,0 +1,44 @@
+services:
+  # 1. Banco de Dados PostgreSQL
+  - type: psql
+    name: conecta-db
+    plan: free
+    region: ohio # ou outra região mais próxima (ex: frankfurt, oregon)
+    postgresMajorVersion: 15
+
+  # 2. Backend Spring Boot (via Docker)
+  - type: web
+    name: conecta-backend
+    env: docker
+    plan: free
+    region: ohio
+    rootDir: backend # Aponta para a pasta do backend onde está o Dockerfile
+    healthCheckPath: /v3/api-docs # ou algum endpoint público, para o Render saber que subiu
+    envVars:
+      # Conectando com o banco criado acima automaticamente
+      - key: DB_HOST
+        fromDatabase:
+          name: conecta-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: conecta-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: conecta-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: conecta-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: conecta-db
+          property: password
+      
+      # Outras variáveis necessárias (preencher no painel depois ou gerar aqui)
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://conecta-oportunidades.vercel.app,http://localhost:5173
