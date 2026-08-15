@@ -12,8 +12,9 @@ services:
     env: docker
     plan: free
     region: ohio
-    rootDir: backend # Aponta para a pasta do backend onde está o Dockerfile
-    healthCheckPath: /v3/api-docs # ou algum endpoint público, para o Render saber que subiu
+    dockerContext: backend
+    dockerfilePath: backend/Dockerfile
+    healthCheckPath: /v3/api-docs
     envVars:
       # Conectando com o banco criado acima automaticamente
       - key: DB_HOST
