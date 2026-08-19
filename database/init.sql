@@ -1,12 +1,3 @@
--- ============================================================
---  Conecta Oportunidades — Script de inicialização do banco
--- ============================================================
-
-CREATE DATABASE IF NOT EXISTS conecta_db
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-
-USE conecta_db;
 
 -- ----------------------------------------------------------
 -- Tabela 1: usuarios
