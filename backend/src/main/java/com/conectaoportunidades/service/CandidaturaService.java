@@ -56,6 +56,12 @@ public class CandidaturaService {
                 .collect(Collectors.toList());
     }
 
+    public List<CandidaturaDTO.Response> listarTodas() {
+        return candidaturaRepository.findAll().stream()
+                .map(this::toResponse)
+                .collect(Collectors.toList());
+    }
+
     public CandidaturaDTO.Response atualizarStatus(Long id, Candidatura.StatusCandidatura novoStatus) {
         Candidatura c = candidaturaRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Candidatura não encontrada: " + id));

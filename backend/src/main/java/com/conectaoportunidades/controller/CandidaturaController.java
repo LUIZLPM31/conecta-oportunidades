@@ -31,6 +31,11 @@ public class CandidaturaController {
         return ResponseEntity.ok(candidaturaService.listarPorCandidato(usuario.getId()));
     }
 
+    @GetMapping("/todas")
+    public ResponseEntity<List<CandidaturaDTO.Response>> listarTodas() {
+        return ResponseEntity.ok(candidaturaService.listarTodas());
+    }
+
     @GetMapping("/vaga/{vagaId}")
     public ResponseEntity<List<CandidaturaDTO.Response>> candidatosPorVaga(
             @PathVariable Long vagaId) {

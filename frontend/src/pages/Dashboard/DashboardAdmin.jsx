@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import {
-  usuarioService, vagaService, capacitacaoService
+  usuarioService, vagaService, capacitacaoService, candidaturaService
 } from '../../services/services'
 import Badge from '../../components/Badge/Badge'
 import TabelaDados from '../../components/TabelaDados/TabelaDados'
@@ -16,6 +16,7 @@ export default function DashboardAdmin() {
   const [usuarios, setUsuarios] = useState([])
   const [vagas, setVagas]       = useState([])
   const [cursos, setCursos]     = useState([])
+  const [candidaturas, setCandidaturas] = useState([])
   const [deleteInfo, setDelete] = useState({ id: null, tipo: null })
   const [formC, setFormC]       = useState(CURSO_VAZIO)
   const [editCursoId, setEditCI] = useState(null)
@@ -26,10 +27,12 @@ export default function DashboardAdmin() {
       usuarioService.listar(),
       vagaService.listarTodas(),
       capacitacaoService.listar(),
-    ]).then(([u, v, c]) => {
+      candidaturaService.todas(),
+    ]).then(([u, v, c, cand]) => {
       setUsuarios(u.data)
       setVagas(v.data)
       setCursos(c.data)
+      setCandidaturas(cand.data)
     }).catch(() => toast.error('Erro ao carregar dados.'))
     .finally(() => setLoading(false))
   }
@@ -91,6 +94,14 @@ export default function DashboardAdmin() {
     } catch { toast.error('Erro ao remover curso.') }
   }
 
+  const handleAtualizarStatusCandidatura = async (id, status) => {
+    try {
+      await candidaturaService.atualizarStatus(id, status)
+      toast.success('Status atualizado!')
+      carregar()
+    } catch { toast.error('Erro ao atualizar status.') }
+  }
+
   const handleDelete = () => {
     if (deleteInfo.tipo === 'usuario') handleDeleteUsuario()
     else if (deleteInfo.tipo === 'vaga') handleDeleteVaga()
@@ -112,13 +123,13 @@ export default function DashboardAdmin() {
       {/* Resumo */}
       <div className="row g-3 mb-4">
         {[
-          { label: 'Usuários', val: usuarios.length, icon: 'bi-people', cor: 'text-primary' },
-          { label: 'Vagas', val: vagas.length, icon: 'bi-briefcase', cor: 'text-success' },
-          { label: 'Cursos', val: cursos.length, icon: 'bi-mortarboard', cor: 'text-warning' },
-          { label: 'Empresas', val: usuarios.filter(u => u.tipoUsuario === 'EMPRESA').length, icon: 'bi-building', cor: 'text-info' },
+          { id: 'usuarios', label: 'Usuários', val: usuarios.length, icon: 'bi-people', cor: 'text-primary' },
+          { id: 'vagas', label: 'Vagas', val: vagas.length, icon: 'bi-briefcase', cor: 'text-success' },
+          { id: 'cursos', label: 'Cursos', val: cursos.length, icon: 'bi-mortarboard', cor: 'text-warning' },
+          { id: 'candidaturas', label: 'Candidaturas', val: candidaturas.length, icon: 'bi-file-earmark-text', cor: 'text-info' },
         ].map((s) => (
-          <div key={s.label} className="col-sm-6 col-xl-3">
-            <div className="card p-3 d-flex flex-row align-items-center gap-3">
+          <div key={s.id} className="col-sm-6 col-xl-3" style={{ cursor: 'pointer' }} onClick={() => setAba(s.id)}>
+            <div className={`card p-3 d-flex flex-row align-items-center gap-3 ${aba === s.id ? 'border-primary' : ''}`}>
               <i className={`bi ${s.icon} fs-2 ${s.cor}`}></i>
               <div>
                 <div className="fw-bold fs-4">{s.val}</div>
@@ -131,13 +142,13 @@ export default function DashboardAdmin() {
 
       {/* Abas */}
       <ul className="nav nav-tabs mb-4">
-        {['usuarios', 'vagas', 'cursos'].map((a) => (
+        {['usuarios', 'vagas', 'cursos', 'candidaturas'].map((a) => (
           <li key={a} className="nav-item">
             <button
               className={`nav-link text-capitalize ${aba === a ? 'active fw-semibold' : ''}`}
               onClick={() => setAba(a)}
             >
-              {a === 'usuarios' ? '👥 Usuários' : a === 'vagas' ? '💼 Vagas' : '📚 Cursos'}
+              {a === 'usuarios' ? '👥 Usuários' : a === 'vagas' ? '💼 Vagas' : a === 'cursos' ? '📚 Cursos' : '📄 Candidaturas'}
             </button>
           </li>
         ))}
@@ -272,6 +283,39 @@ export default function DashboardAdmin() {
             )}
           />
         </>
+      )}
+
+      {/* Candidaturas */}
+      {aba === 'candidaturas' && (
+        <TabelaDados
+          colunas={[
+            { key: 'nomeCandidato', label: 'Candidato' },
+            { key: 'tituloVaga', label: 'Vaga' },
+            { key: 'dataCandidatura', label: 'Data', render: (v) => v?.slice(0, 10) },
+            { key: 'status', label: 'Status', render: (v) => <Badge tipo="statusCand" valor={v} /> },
+          ]}
+          dados={candidaturas}
+          acoes={(row) => (
+            row.status === 'PENDENTE' ? (
+              <div className="d-flex gap-2">
+                <button
+                  className="btn btn-outline-success btn-sm"
+                  title="Aprovar"
+                  onClick={() => handleAtualizarStatusCandidatura(row.id, 'APROVADO')}
+                >
+                  <i className="bi bi-check-lg"></i>
+                </button>
+                <button
+                  className="btn btn-outline-danger btn-sm"
+                  title="Rejeitar"
+                  onClick={() => handleAtualizarStatusCandidatura(row.id, 'REJEITADO')}
+                >
+                  <i className="bi bi-x-lg"></i>
+                </button>
+              </div>
+            ) : null
+          )}
+        />
       )}
 
       <ModalConfirmacao id="modalDelete" onConfirmar={handleDelete} />

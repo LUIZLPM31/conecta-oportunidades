@@ -79,7 +79,7 @@ git clone <url-do-repo>
 cd ProjetoFinalRecolde
 
 cp .env.example .env
-nano .env   # preencher DB_PASSWORD e JWT_SECRET
+nano .env   
 ```
 
 ### 4. Subir os containers
@@ -98,7 +98,7 @@ docker compose up -d --build
 | Admin | admin@conecta.com | admin123 |
 | Empresa Demo | empresa@demo.com | admin123 |
 
-> ⚠️ Altere as senhas em produção!
+
 
 ---
 

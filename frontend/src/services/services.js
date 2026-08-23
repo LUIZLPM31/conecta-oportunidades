@@ -34,6 +34,7 @@ export const capacitacaoService = {
 export const candidaturaService = {
   candidatar:      (vagaId)       => api.post(`/candidaturas/vaga/${vagaId}`),
   minhas:          ()             => api.get('/candidaturas/minhas'),
+  todas:           ()             => api.get('/candidaturas/todas'),
   porVaga:         (vagaId)       => api.get(`/candidaturas/vaga/${vagaId}`),
   atualizarStatus: (id, status)   => api.patch(`/candidaturas/${id}/status?status=${status}`),
   deletar:         (id)           => api.delete(`/candidaturas/${id}`),
