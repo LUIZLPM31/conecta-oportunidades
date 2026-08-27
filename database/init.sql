@@ -81,7 +81,7 @@ INSERT IGNORE INTO usuarios (nome, email, senha, tipo_usuario, telefone, cidade)
 VALUES (
     'TechEmpresa Demo',
     'empresa@demo.com',
-    '$2a$10$pz00FiK4v11faflAlvH0ZeucbDRYQO5O6F2taD/wdjk.h2QufvnTS', -- admin123
+    '$2a$12$VBoo91DYPNncjko/gBZ2.ujsy4rWhU/yugpBbqgwfRWB94lalVTdm', -- empresa123
     'EMPRESA',
     '(51) 99999-0000',
     'Porto Alegre'
