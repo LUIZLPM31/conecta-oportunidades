@@ -7,7 +7,7 @@
 
 | Camada | Tecnologia |
 |---|---|
-| Banco de Dados | MySQL 8 (Aiven) |
+| Banco de Dados | MySQL 8  |
 | Backend | Java 17 + Spring Boot 3 |
 | Frontend | React 18 + Vite + Bootstrap 5 |
 | Deploy | Docker Compose + Oracle Cloud Free Tier |
