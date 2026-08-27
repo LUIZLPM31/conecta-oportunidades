@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS candidaturas (
 INSERT IGNORE INTO usuarios (nome, email, senha, tipo_usuario, cidade)
 VALUES (
     'Administrador',
-    'admin@conecta.com',
+    'admin2@conecta.com',
     '$2a$10$pz00FiK4v11faflAlvH0ZeucbDRYQO5O6F2taD/wdjk.h2QufvnTS', -- admin123 (BCrypt)
     'ADMIN',
     'Porto Alegre'
