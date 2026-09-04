@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Briefcase, GraduationCap, Users, ArrowRight, Zap, Target, Sparkles } from 'lucide-react'
-import heroImage from '../../assets/hero_illustration.png'
+import heroImage from '../../assets/hero_emerald.jpg'
 
 const ODS = [
   { num: '8',  cor: 'bg-emerald-600', texto: 'Trabalho Decente e Crescimento Econômico' },
