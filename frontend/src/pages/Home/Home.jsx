@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Briefcase, GraduationCap, Users, ArrowRight, Zap, Target, Sparkles } from 'lucide-react'
+import { Briefcase, GraduationCap, Users, ArrowRight, Zap, Target, Sparkles, Rocket } from 'lucide-react'
 import heroWorkerImage from '../../assets/hero_trabalhador.jpg'
 
 const ODS = [
@@ -29,7 +29,10 @@ export default function Home() {
                 Conecte-se a <br className="hidden lg:block"/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-200">
                   oportunidades reais
-                </span> 🚀
+                </span>
+                <span className="inline-flex items-center justify-center ml-2.5 p-2 md:p-2.5 rounded-2xl bg-emerald-500/15 border border-emerald-400/30 text-emerald-400 align-middle shadow-lg shadow-emerald-500/20 backdrop-blur-md hover:scale-110 transition-transform duration-300">
+                  <Rocket className="w-6 h-6 md:w-8 md:h-8 -rotate-12 hover:rotate-0 transition-transform duration-300" />
+                </span>
               </h1>
               
               <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed">
