@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Briefcase, GraduationCap, Users, ArrowRight, Zap, Target, Sparkles } from 'lucide-react'
-import heroImage from '../../assets/hero_emerald.jpg'
+import heroWorkerImage from '../../assets/hero_trabalhador.jpg'
 
 const ODS = [
   { num: '8',  cor: 'bg-emerald-600', texto: 'Trabalho Decente e Crescimento Econômico' },
@@ -49,14 +49,50 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex justify-center lg:justify-end relative">
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent z-10 lg:hidden"></div>
-              <img 
-                src={heroImage} 
-                alt="Ilustração 3D Maleta e Foguete" 
-                className="w-full max-w-lg object-contain relative z-20 drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]"
-                style={{ filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.5))' }}
-              />
+            <div className="flex justify-center lg:justify-end relative mt-6 lg:mt-0">
+              {/* Moldura moderna e humanizada com a foto do trabalhador */}
+              <div className="relative group max-w-md lg:max-w-lg w-full">
+                {/* Glow decorativo de fundo */}
+                <div className="absolute -inset-2 bg-gradient-to-r from-emerald-500/30 to-teal-400/20 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                
+                {/* Container da foto com cantos arredondados e borda translúcida */}
+                <div className="relative rounded-3xl overflow-hidden border-2 border-white/15 shadow-2xl shadow-emerald-950/50 bg-slate-800">
+                  <img 
+                    src={heroWorkerImage} 
+                    alt="Trabalhador capacitado segurando notebook e sorrindo feliz" 
+                    className="w-full h-[380px] sm:h-[460px] object-cover object-top transition duration-500 group-hover:scale-105"
+                  />
+                  {/* Gradiente suave na base da foto para contraste */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none"></div>
+
+                  {/* Card flutuante institucional inferior no estilo Senac/Recode */}
+                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-white/15 flex items-center justify-between shadow-xl">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400">
+                        <GraduationCap className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <p className="text-white font-bold text-sm leading-tight mb-0.5">Capacitação Gratuita</p>
+                        <p className="text-emerald-400 text-xs font-medium mb-0">Cursos com certificação</p>
+                      </div>
+                    </div>
+                    <span className="px-3 py-1.5 rounded-xl bg-emerald-500 text-white font-bold text-xs shadow-md shadow-emerald-500/30">
+                      Oportunidades
+                    </span>
+                  </div>
+                </div>
+
+                {/* Badge flutuante superior com ícone de brilho */}
+                <div className="absolute -top-4 -left-3 sm:-left-5 px-4 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md border border-white shadow-xl shadow-slate-950/30 flex items-center gap-3 z-30 animate-pulse">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold">
+                    <Sparkles className="w-4 h-4" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs font-bold text-slate-900 leading-none">Novas Turmas</div>
+                    <div className="text-[11px] text-emerald-700 font-semibold mt-0.5">100% Gratuitas</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
