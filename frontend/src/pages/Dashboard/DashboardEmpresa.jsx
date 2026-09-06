@@ -309,7 +309,7 @@ export default function DashboardEmpresa() {
 
       {/* Aba 1: Lista de Vagas */}
       {aba === 'vagas' && (
-        <div className="table-responsive">
+        <div className="table-responsive card p-0 overflow-hidden">
           {vagas.length === 0 ? (
             <div className="text-center py-5 text-muted">
               <i className="bi bi-briefcase fs-1 d-block mb-2"></i>
@@ -320,7 +320,7 @@ export default function DashboardEmpresa() {
               </button>
             </div>
           ) : (
-            <table className="table table-hover align-middle">
+            <table className="table table-hover align-middle mb-0">
               <thead className="table-light">
                 <tr>
                   <th>Título</th>
