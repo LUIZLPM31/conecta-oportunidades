@@ -31,15 +31,25 @@ export default function Login() {
   }
 
   return (
-    <div className="min-vh-100 d-flex align-items-center" style={{ background: '#f1f5f9' }}>
+    <div className="min-vh-100 d-flex align-items-center py-5" style={{ background: '#f8fafc' }}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-5">
-            <div className="card p-4 shadow-sm">
+            <div className="mb-3">
+              <Link 
+                to="/" 
+                className="text-decoration-none text-secondary d-inline-flex align-items-center gap-2 fw-semibold small px-3 py-1.5 rounded-pill bg-white shadow-sm border"
+                style={{ transition: 'all 0.2s' }}
+              >
+                <i className="bi bi-arrow-left"></i> Voltar ao início
+              </Link>
+            </div>
+
+            <div className="card p-4 p-sm-5 shadow-sm border-0 rounded-4">
               <div className="text-center mb-4">
                 <span className="fs-1">🔑</span>
-                <h2 className="fw-bold mt-2">Entrar</h2>
-                <p className="text-muted">Acesse sua conta</p>
+                <h2 className="fw-bold mt-2 text-slate-900">Entrar</h2>
+                <p className="text-muted small">Acesse sua conta Conecta Oportunidades</p>
               </div>
 
               <form onSubmit={handleSubmit}>
