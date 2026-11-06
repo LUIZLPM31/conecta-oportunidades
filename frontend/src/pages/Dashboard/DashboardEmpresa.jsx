@@ -256,7 +256,7 @@ export default function DashboardEmpresa() {
               <i className={`bi ${s.icon} fs-2 ${s.cor}`}></i>
               <div>
                 <div className="fw-bold fs-4 text-white">{s.val}</div>
-                <div className="text-muted small">{s.label}</div>
+                <div className="text-white-50 small">{s.label}</div>
                 {s.sub && (
                   <div className={`badge ${totalPendentes > 0 ? 'bg-danger' : 'bg-secondary'} rounded-pill mt-1`} style={{ fontSize: '0.68rem' }}>
                     {s.sub}
@@ -309,7 +309,7 @@ export default function DashboardEmpresa() {
 
       {/* Aba 1: Lista de Vagas */}
       {aba === 'vagas' && (
-        <div className="table-responsive card p-0 overflow-hidden">
+        <div className="table-responsive">
           {vagas.length === 0 ? (
             <div className="text-center py-5 text-muted">
               <i className="bi bi-briefcase fs-1 d-block mb-2"></i>
@@ -320,7 +320,7 @@ export default function DashboardEmpresa() {
               </button>
             </div>
           ) : (
-            <table className="table table-hover align-middle mb-0">
+            <table className="table table-hover align-middle">
               <thead className="table-light">
                 <tr>
                   <th>Título</th>

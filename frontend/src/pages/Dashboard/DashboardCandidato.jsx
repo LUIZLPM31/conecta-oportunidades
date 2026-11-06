@@ -75,8 +75,8 @@ export default function DashboardCandidato() {
             >
               <i className={`bi ${s.icon} fs-2 ${s.cor}`}></i>
               <div>
-                <div className="fw-bold fs-4">{s.val}</div>
-                <div className="text-muted small">{s.label}</div>
+                <div className="fw-bold fs-4 text-white">{s.val}</div>
+                <div className="text-white-50 small">{s.label}</div>
               </div>
             </div>
           </div>

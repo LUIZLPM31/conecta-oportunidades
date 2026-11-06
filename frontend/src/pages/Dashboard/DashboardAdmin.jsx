@@ -115,8 +115,8 @@ export default function DashboardAdmin() {
       <div className="d-flex align-items-center gap-3 mb-4">
         <span className="fs-2">⚙️</span>
         <div>
-          <h2 className="fw-bold mb-0">Painel Administrativo</h2>
-          <p className="text-muted mb-0">Gestão completa da plataforma</p>
+          <h2 className="fw-bold mb-0 text-white">Painel Administrativo</h2>
+          <p className="text-white-50 mb-0">Gestão completa da plataforma</p>
         </div>
       </div>
 
@@ -132,8 +132,8 @@ export default function DashboardAdmin() {
             <div className={`card p-3 d-flex flex-row align-items-center gap-3 ${aba === s.id ? 'border-primary' : ''}`}>
               <i className={`bi ${s.icon} fs-2 ${s.cor}`}></i>
               <div>
-                <div className="fw-bold fs-4">{s.val}</div>
-                <div className="text-muted small">{s.label}</div>
+                <div className="fw-bold fs-4 text-white">{s.val}</div>
+                <div className="text-white-50 small">{s.label}</div>
               </div>
             </div>
           </div>
