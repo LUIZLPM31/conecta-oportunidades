@@ -53,8 +53,8 @@ export default function DashboardCandidato() {
       <div className="d-flex align-items-center gap-3 mb-4">
         <span className="fs-2">👤</span>
         <div>
-          <h2 className="fw-bold mb-0">Olá, {user?.nome?.split(' ')[0]}!</h2>
-          <p className="text-muted mb-0">Painel do Candidato</p>
+          <h2 className="fw-bold mb-0" style={{ color: 'var(--text-title)' }}>Olá, {user?.nome?.split(' ')[0]}!</h2>
+          <p className="mb-0 fw-medium" style={{ color: 'var(--text-muted)' }}>Painel do Candidato</p>
         </div>
       </div>
 
@@ -75,8 +75,8 @@ export default function DashboardCandidato() {
             >
               <i className={`bi ${s.icon} fs-2 ${s.cor}`}></i>
               <div>
-                <div className="fw-bold fs-4 text-white">{s.val}</div>
-                <div className="text-white-50 small">{s.label}</div>
+                <div className="fw-bold fs-4" style={{ color: 'var(--text-title)' }}>{s.val}</div>
+                <div className="small fw-semibold" style={{ color: 'var(--text-muted)' }}>{s.label}</div>
               </div>
             </div>
           </div>
@@ -101,23 +101,26 @@ export default function DashboardCandidato() {
 
       {/* Conteúdo */}
       {aba === 'candidaturas' && (
-        <div className="table-responsive">
+        <div className="table-responsive rounded-3 border border-secondary border-opacity-25 shadow-sm">
           {candidaturas.length === 0 ? (
-            <p className="text-muted text-center py-4">Você ainda não se candidatou a nenhuma vaga.</p>
+            <p className="text-white text-center py-4 mb-0">Você ainda não se candidatou a nenhuma vaga.</p>
           ) : (
-            <table className="table table-hover align-middle">
-              <thead className="table-light">
+            <table className="table table-hover align-middle mb-0">
+              <thead>
                 <tr>
-                  <th>Vaga</th><th>Status</th><th>Data</th><th>Ação</th>
+                  <th className="fw-bold py-3">Vaga</th>
+                  <th className="fw-bold py-3">Status</th>
+                  <th className="fw-bold py-3">Data</th>
+                  <th className="fw-bold py-3">Ação</th>
                 </tr>
               </thead>
               <tbody>
                 {candidaturas.map((c) => (
                   <tr key={c.id}>
-                    <td className="fw-semibold">{c.tituloVaga}</td>
-                    <td><Badge tipo="cand" valor={c.status} /></td>
-                    <td className="text-muted small">{c.dataCandidatura?.slice(0, 10)}</td>
-                    <td>
+                    <td className="fw-semibold text-white py-3">{c.tituloVaga}</td>
+                    <td className="py-3"><Badge tipo="cand" valor={c.status} /></td>
+                    <td className="text-white small py-3">{c.dataCandidatura?.slice(0, 10)}</td>
+                    <td className="py-3">
                       {c.status === 'PENDENTE' && (
                         <button className="btn btn-outline-danger btn-sm" onClick={() => handleRetirar(c.id)}>
                           Retirar

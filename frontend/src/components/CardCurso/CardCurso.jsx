@@ -16,7 +16,7 @@ export default function CardCurso({ curso }) {
           <i className="bi bi-clock me-1 text-primary"></i>
           {curso.cargaHoraria ? `${curso.cargaHoraria}h` : 'Duração variável'}
           {' '}
-          <span className={`ms-2 badge ${curso.gratuito ? 'bg-success' : 'bg-warning text-dark'}`}>
+          <span className={`ms-2 badge rounded-pill px-2.5 py-0.5 fw-semibold ${curso.gratuito ? 'badge-status-ativa' : 'badge-cand-pendente'}`}>
             {curso.gratuito ? 'Gratuito' : 'Pago'}
           </span>
         </p>

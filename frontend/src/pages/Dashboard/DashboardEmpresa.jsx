@@ -200,8 +200,8 @@ export default function DashboardEmpresa() {
         <div className="d-flex align-items-center gap-3">
           <span className="fs-2">🏢</span>
           <div>
-            <h2 className="fw-bold mb-0 text-white">{user?.nome}</h2>
-            <p className="text-muted mb-0">Painel da Empresa</p>
+            <h2 className="fw-bold mb-0" style={{ color: 'var(--text-title)' }}>{user?.nome}</h2>
+            <p className="mb-0 fw-medium" style={{ color: 'var(--text-muted)' }}>Painel da Empresa</p>
           </div>
         </div>
 
@@ -255,8 +255,8 @@ export default function DashboardEmpresa() {
             <div className="card p-3 d-flex flex-row align-items-center gap-3 h-100 shadow-sm">
               <i className={`bi ${s.icon} fs-2 ${s.cor}`}></i>
               <div>
-                <div className="fw-bold fs-4 text-white">{s.val}</div>
-                <div className="text-white-50 small">{s.label}</div>
+                <div className="fw-bold fs-4" style={{ color: 'var(--text-title)' }}>{s.val}</div>
+                <div className="small fw-semibold" style={{ color: 'var(--text-muted)' }}>{s.label}</div>
                 {s.sub && (
                   <div className={`badge ${totalPendentes > 0 ? 'bg-danger' : 'bg-secondary'} rounded-pill mt-1`} style={{ fontSize: '0.68rem' }}>
                     {s.sub}
@@ -309,10 +309,10 @@ export default function DashboardEmpresa() {
 
       {/* Aba 1: Lista de Vagas */}
       {aba === 'vagas' && (
-        <div className="table-responsive">
+        <div className="table-responsive rounded-3 border border-secondary border-opacity-25 shadow-sm">
           {vagas.length === 0 ? (
-            <div className="text-center py-5 text-muted">
-              <i className="bi bi-briefcase fs-1 d-block mb-2"></i>
+            <div className="text-center py-5 text-white">
+              <i className="bi bi-briefcase fs-1 d-block mb-2 text-white"></i>
               Nenhuma vaga cadastrada ainda.
               <br />
               <button className="btn btn-primary btn-sm mt-3" onClick={() => setAba('form')}>
@@ -320,14 +320,14 @@ export default function DashboardEmpresa() {
               </button>
             </div>
           ) : (
-            <table className="table table-hover align-middle">
-              <thead className="table-light">
+            <table className="table table-hover align-middle mb-0">
+              <thead>
                 <tr>
-                  <th>Título</th>
-                  <th>Modalidade</th>
-                  <th>Status</th>
-                  <th>Criada em</th>
-                  <th>Ações</th>
+                  <th className="fw-bold py-3">Título</th>
+                  <th className="fw-bold py-3">Modalidade</th>
+                  <th className="fw-bold py-3">Status</th>
+                  <th className="fw-bold py-3">Criada em</th>
+                  <th className="fw-bold py-3">Ações</th>
                 </tr>
               </thead>
               <tbody>
@@ -337,11 +337,11 @@ export default function DashboardEmpresa() {
 
                   return (
                     <tr key={v.id}>
-                      <td className="fw-semibold text-white">{v.tituloVaga}</td>
-                      <td><Badge tipo="modalidade" valor={v.modalidade} /></td>
-                      <td><Badge tipo="status" valor={v.status} /></td>
-                      <td className="text-muted small">{v.criadoEm?.slice(0, 10)}</td>
-                      <td>
+                      <td className="fw-semibold text-white py-3">{v.tituloVaga}</td>
+                      <td className="py-3"><Badge tipo="modalidade" valor={v.modalidade} /></td>
+                      <td className="py-3"><Badge tipo="status" valor={v.status} /></td>
+                      <td className="text-white small py-3">{v.criadoEm?.slice(0, 10)}</td>
+                      <td className="py-3">
                         <div className="d-flex gap-2 align-items-center">
                           {/* Editar */}
                           <button 
@@ -537,35 +537,35 @@ export default function DashboardEmpresa() {
               </p>
             </div>
           ) : (
-            <div className="table-responsive card p-2">
-              <table className="table align-middle mb-0">
-                <thead className="table-light">
+            <div className="table-responsive rounded-3 border border-secondary border-opacity-25 shadow-sm">
+              <table className="table table-hover align-middle mb-0">
+                <thead>
                   <tr>
-                    <th>Candidato</th>
-                    <th>E-mail</th>
-                    {!vagaSel && <th>Vaga</th>}
-                    <th>Status</th>
-                    <th>Data</th>
-                    <th className="text-end">Ações de Avaliação</th>
+                    <th className="fw-bold py-3">Candidato</th>
+                    <th className="fw-bold py-3">E-mail</th>
+                    {!vagaSel && <th className="fw-bold py-3">Vaga</th>}
+                    <th className="fw-bold py-3">Status</th>
+                    <th className="fw-bold py-3">Data</th>
+                    <th className="text-end fw-bold py-3">Ações de Avaliação</th>
                   </tr>
                 </thead>
                 <tbody>
                   {listaCandidatosExibida.map((c) => (
                     <tr key={c.id}>
-                      <td>
+                      <td className="py-3">
                         <div className="fw-semibold text-white">{c.nomeCandidato}</div>
                       </td>
-                      <td className="text-muted">{c.emailCandidato}</td>
+                      <td className="text-white py-3">{c.emailCandidato}</td>
                       {!vagaSel && (
-                        <td>
+                        <td className="py-3">
                           <span className="badge bg-dark border border-secondary text-info">
                             {c.tituloVaga}
                           </span>
                         </td>
                       )}
-                      <td><Badge tipo="cand" valor={c.status} /></td>
-                      <td className="text-muted small">{c.dataCandidatura?.slice(0, 10)}</td>
-                      <td className="text-end">
+                      <td className="py-3"><Badge tipo="cand" valor={c.status} /></td>
+                      <td className="text-white small py-3">{c.dataCandidatura?.slice(0, 10)}</td>
+                      <td className="text-end py-3">
                         <div className="d-flex gap-2 justify-content-end">
                           <button
                             className={`btn btn-sm ${c.status === 'APROVADO' ? 'btn-success' : 'btn-outline-success'}`}

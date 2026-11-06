@@ -1,5 +1,5 @@
 /* ============================================================
-   Conecta Oportunidades — Estilos globais
+   Conecta Oportunidades — Estilos Globais e Sistema de Temas
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -8,16 +8,90 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* ============================================================
+   1. VARIÁVEIS DE TEMA (CLARO & ESCURO)
+   ============================================================ */
+
+/* TEMA CLARO (Light Mode) */
+:root,
+html.light,
+body.light,
+[data-theme="light"],
+[data-bs-theme="light"] {
+  --primary: #0284C7;
+  --primary-dark: #0369a1;
+  --secondary: #059669;
+  --accent: #d97706;
+
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-nav: rgba(255, 255, 255, 0.95);
+  --border-color: #e2e8f0;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+
+  --text-title: #0f172a;
+  --text-body: #1e293b;
+  --text-muted: #64748b;
+
+  --table-bg: #ffffff;
+  --table-head-bg: #f1f5f9;
+  --table-hover: #f8fafc;
+  --table-text: #0f172a;
+  --table-border: #e2e8f0;
+
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
+  --input-text: #0f172a;
+
+  /* Aliases para compatibilidade */
+  --bg-app: #f8fafc;
+  --bg-card-alias: #ffffff;
+  --dark: #f8fafc;
+  --dark-card: #ffffff;
+  --border: #e2e8f0;
+}
+
+/* TEMA ESCURO (Dark Mode) */
+html.dark,
+body.dark,
+[data-theme="dark"],
+[data-bs-theme="dark"] {
   --primary: #38BDF8;
   --primary-dark: #0284C7;
   --secondary: #10b981;
   --accent: #f59e0b;
+
+  --bg-page: #0f172a;
+  --bg-card: #1e293b;
+  --bg-nav: rgba(15, 23, 42, 0.95);
+  --border-color: #334155;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+  --text-title: #ffffff;
+  --text-body: #f8fafc;
+  --text-muted: #94a3b8;
+
+  --table-bg: #1e293b;
+  --table-head-bg: #0b1324;
+  --table-hover: #273549;
+  --table-text: #ffffff;
+  --table-border: #334155;
+
+  --input-bg: #0f172a;
+  --input-border: #334155;
+  --input-text: #ffffff;
+
+  /* Aliases para compatibilidade */
+  --bg-app: #0f172a;
+  --bg-card-alias: #1e293b;
   --dark: #0f172a;
   --dark-card: #1e293b;
-  --text-muted: #94a3b8;
   --border: #334155;
 }
+
+/* ============================================================
+   2. REGRAS GLOBAIS DE CORPO E TIPOGRAFIA
+   ============================================================ */
 
 * {
   margin: 0;
@@ -27,150 +101,349 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--dark);
-  color: #f8fafc;
+  background-color: var(--bg-page) !important;
+  color: var(--text-body) !important;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: #ffffff;
+main {
+  background-color: var(--bg-page);
+  color: var(--text-body);
+  transition: background-color 0.25s ease;
+}
+
+h1, h2, h3, h4, h5, h6,
+.section-title {
+  color: var(--text-title) !important;
+  transition: color 0.25s ease;
 }
 
 .text-muted {
   color: var(--text-muted) !important;
 }
 
-/* === Navbar override === */
+/* ============================================================
+   3. NAVBAR E CABEÇALHOS
+   ============================================================ */
+
+nav.navbar-theme {
+  background-color: var(--bg-nav) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
 .navbar-brand {
   font-weight: 800;
   font-size: 1.3rem;
   color: var(--primary) !important;
 }
 
-/* === Cards === */
-.card {
-  border: 1px solid var(--border) !important;
-  background-color: var(--dark-card) !important;
-  color: #f8fafc;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+/* ============================================================
+   4. CARDS (HOME, DASHBOARDS, VAGAS, CURSOS)
+   ============================================================ */
+
+.card,
+.stat-card,
+.ods-card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-body) !important;
+  border-radius: 14px;
+  box-shadow: var(--card-shadow) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s, background-color 0.25s ease;
 }
 
-.card:hover {
+.card:hover,
+.stat-card:hover,
+.ods-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
   border-color: var(--primary) !important;
 }
 
-/* === Badges === */
-.badge-modalidade-PRESENCIAL  { background-color: #dbeafe; color: #1e40af; }
-.badge-modalidade-REMOTO      { background-color: #d1fae5; color: #065f46; }
-.badge-modalidade-HIBRIDO     { background-color: #fef3c7; color: #92400e; }
-
-.badge-status-ATIVA           { background-color: #d1fae5; color: #065f46; }
-.badge-status-ENCERRADA       { background-color: #fee2e2; color: #991b1b; }
-
-.badge-cand-PENDENTE          { background-color: #fef3c7; color: #92400e; }
-.badge-cand-APROVADO          { background-color: #d1fae5; color: #065f46; }
-.badge-cand-REJEITADO         { background-color: #fee2e2; color: #991b1b; }
-
-/* === Hero === */
-.hero-section {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #0f172a 100%);
-  color: white;
-  padding: 6rem 0;
+/* Cores de títulos e textos dentro de cards */
+.card h1, .card h2, .card h3, .card h4, .card h5, .card h6,
+.stat-card h3, .ods-card h5 {
+  color: var(--text-title) !important;
 }
 
-.hero-section h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 1.15;
-}
-
-/* === Dashboard sidebar === */
-.sidebar {
-  min-height: calc(100vh - 60px);
-  background: var(--dark);
-  color: white;
-  padding: 1.5rem;
-}
-
-.sidebar .nav-link {
+.card p,
+.stat-card p,
+.ods-card p {
   color: var(--text-muted);
-  border-radius: 8px;
-  padding: 0.6rem 1rem;
-  transition: all 0.2s;
 }
 
-.sidebar .nav-link:hover,
-.sidebar .nav-link.active {
-  background: rgba(37,99,235,0.15);
-  color: #93c5fd;
+/* ============================================================
+   5. TABELAS (TOTALMENTE DINÂMICAS LIGHT / DARK)
+   ============================================================ */
+
+.table {
+  --bs-table-bg: var(--table-bg) !important;
+  --bs-table-color: var(--table-text) !important;
+  --bs-table-striped-bg: var(--table-bg) !important;
+  --bs-table-striped-color: var(--table-text) !important;
+  --bs-table-active-bg: var(--table-hover) !important;
+  --bs-table-active-color: var(--table-text) !important;
+  --bs-table-hover-bg: var(--table-hover) !important;
+  --bs-table-hover-color: var(--table-text) !important;
+  --bs-table-border-color: var(--table-border) !important;
+  background-color: var(--table-bg) !important;
+  color: var(--table-text) !important;
+  border-color: var(--table-border) !important;
 }
 
-/* === Nav Tabs (Dark Theme) === */
-.nav-tabs {
-  border-bottom-color: var(--border) !important;
+.table th,
+.table td,
+.table > :not(caption) > * > * {
+  background-color: var(--table-bg) !important;
+  color: var(--table-text) !important;
+  border-bottom-color: var(--table-border) !important;
+  box-shadow: none !important;
 }
 
-.nav-tabs .nav-link {
-  color: #ffffff !important;
-  opacity: 0.85;
-  border-color: transparent !important;
-  transition: all 0.2s ease;
+.table thead th {
+  background-color: var(--table-head-bg) !important;
+  color: var(--text-title) !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid var(--table-border) !important;
+  letter-spacing: 0.05em;
 }
 
-.nav-tabs .nav-link:hover {
-  color: #ffffff !important;
-  opacity: 1;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-color: transparent !important;
+.table-hover tbody tr:hover > * {
+  background-color: var(--table-hover) !important;
+  color: var(--table-text) !important;
 }
 
-.nav-tabs .nav-link.active {
-  color: #ffffff !important;
-  opacity: 1;
-  background-color: var(--dark-card) !important;
-  border-color: var(--border) var(--border) var(--dark-card) !important;
+/* ============================================================
+   6. BADGES MODERNOS (OTIMIZADOS PARA AMBOS OS TEMAS)
+   ============================================================ */
+
+.badge-usuario-CANDIDATO,
+.badge-usuario-candidato,
+.badge-cand-CANDIDATO {
+  background-color: rgba(56, 189, 248, 0.18) !important;
+  color: #0284c7 !important;
+  border: 1px solid rgba(56, 189, 248, 0.5) !important;
+}
+html.dark .badge-usuario-CANDIDATO,
+html.dark .badge-usuario-candidato {
+  color: #38bdf8 !important;
 }
 
-/* === Botões === */
+.badge-usuario-EMPRESA,
+.badge-usuario-empresa,
+.badge-cand-EMPRESA {
+  background-color: rgba(168, 85, 247, 0.18) !important;
+  color: #7e22ce !important;
+  border: 1px solid rgba(168, 85, 247, 0.5) !important;
+}
+html.dark .badge-usuario-EMPRESA,
+html.dark .badge-usuario-empresa {
+  color: #c084fc !important;
+}
+
+.badge-usuario-ADMIN,
+.badge-usuario-admin,
+.badge-cand-ADMIN {
+  background-color: rgba(245, 158, 11, 0.18) !important;
+  color: #b45309 !important;
+  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+}
+html.dark .badge-usuario-ADMIN,
+html.dark .badge-usuario-admin {
+  color: #fbbf24 !important;
+}
+
+.badge-modalidade-PRESENCIAL,
+.badge-modalidade-presencial {
+  background-color: rgba(59, 130, 246, 0.18) !important;
+  color: #1d4ed8 !important;
+  border: 1px solid rgba(59, 130, 246, 0.5) !important;
+}
+html.dark .badge-modalidade-PRESENCIAL {
+  color: #93c5fd !important;
+}
+
+.badge-modalidade-REMOTO,
+.badge-modalidade-remoto {
+  background-color: rgba(16, 185, 129, 0.18) !important;
+  color: #047857 !important;
+  border: 1px solid rgba(16, 185, 129, 0.5) !important;
+}
+html.dark .badge-modalidade-REMOTO {
+  color: #6ee7b7 !important;
+}
+
+.badge-modalidade-HIBRIDO,
+.badge-modalidade-hibrido {
+  background-color: rgba(245, 158, 11, 0.18) !important;
+  color: #b45309 !important;
+  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+}
+html.dark .badge-modalidade-HIBRIDO {
+  color: #fcd34d !important;
+}
+
+.badge-status-ATIVA,
+.badge-status-ativa {
+  background-color: rgba(16, 185, 129, 0.18) !important;
+  color: #047857 !important;
+  border: 1px solid rgba(16, 185, 129, 0.5) !important;
+}
+html.dark .badge-status-ATIVA {
+  color: #6ee7b7 !important;
+}
+
+.badge-status-ENCERRADA,
+.badge-status-encerrada {
+  background-color: rgba(239, 68, 68, 0.18) !important;
+  color: #b91c1c !important;
+  border: 1px solid rgba(239, 68, 68, 0.5) !important;
+}
+html.dark .badge-status-ENCERRADA {
+  color: #fca5a5 !important;
+}
+
+.badge-cand-PENDENTE,
+.badge-cand-pendente {
+  background-color: rgba(245, 158, 11, 0.18) !important;
+  color: #b45309 !important;
+  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+}
+html.dark .badge-cand-PENDENTE {
+  color: #fcd34d !important;
+}
+
+.badge-cand-APROVADO,
+.badge-cand-aprovado {
+  background-color: rgba(16, 185, 129, 0.18) !important;
+  color: #047857 !important;
+  border: 1px solid rgba(16, 185, 129, 0.5) !important;
+}
+html.dark .badge-cand-APROVADO {
+  color: #6ee7b7 !important;
+}
+
+.badge-cand-REJEITADO,
+.badge-cand-rejeitado {
+  background-color: rgba(239, 68, 68, 0.18) !important;
+  color: #b91c1c !important;
+  border: 1px solid rgba(239, 68, 68, 0.5) !important;
+}
+html.dark .badge-cand-REJEITADO {
+  color: #fca5a5 !important;
+}
+
+/* ============================================================
+   7. FORMULÁRIOS, BOTÕES E MODAIS
+   ============================================================ */
+
+.form-control,
+.form-select {
+  background-color: var(--input-bg) !important;
+  border-color: var(--input-border) !important;
+  color: var(--input-text) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--input-bg) !important;
+  border-color: var(--primary) !important;
+  color: var(--input-text) !important;
+  box-shadow: 0 0 0 0.25rem rgba(56, 189, 248, 0.25) !important;
+}
+
+.form-control::placeholder {
+  color: var(--text-muted) !important;
+}
+
 .btn-primary {
   background-color: var(--primary);
   border-color: var(--primary);
+  color: #ffffff !important;
 }
 
 .btn-primary:hover {
   background-color: var(--primary-dark);
   border-color: var(--primary-dark);
+  color: #ffffff !important;
 }
 
-/* === Tabelas === */
-.table {
-  color: #f8fafc !important;
-}
-.table-hover tbody tr:hover {
-  background-color: rgba(255,255,255,0.05) !important;
-  cursor: pointer;
-}
-.table-light, .table-light th {
-  background-color: var(--dark-card) !important;
-  color: #f8fafc !important;
-  border-bottom: 1px solid var(--border);
+.modal-content {
+  background-color: var(--bg-card) !important;
+  color: var(--text-body) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* === Animações === */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
+.modal-header,
+.modal-footer {
+  border-color: var(--border-color) !important;
 }
 
-.fade-in {
-  animation: fadeIn 0.4s ease forwards;
+html.dark .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
 }
 
-/* === Footer === */
+/* ============================================================
+   8. NAV TABS E FOOTER
+   ============================================================ */
+
+.nav-tabs {
+  border-bottom-color: var(--border-color) !important;
+}
+
+.nav-tabs .nav-link {
+  color: var(--text-muted) !important;
+  opacity: 0.9;
+  border-color: transparent !important;
+  transition: all 0.2s ease;
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--text-title) !important;
+  opacity: 1;
+  background-color: rgba(125, 125, 125, 0.08);
+  border-color: transparent !important;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--primary) !important;
+  opacity: 1;
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) var(--border-color) var(--bg-card) !important;
+}
+
 footer {
-  background: var(--dark);
+  background: var(--bg-card);
   color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+  transition: background-color 0.25s ease;
+}
+
+/* Seções especiais da Home */
+.home-section-ods {
+  background-color: var(--bg-page);
+  transition: background-color 0.25s ease;
+}
+
+/* ============================================================
+   9. PROTEÇÃO GLOBAL CONTRA TEXTO INVISÍVEL NO TEMA CLARO
+   ============================================================ */
+html.light .text-white:not(.btn):not(.btn *):not(.badge):not(.badge *),
+body.light .text-white:not(.btn):not(.btn *):not(.badge):not(.badge *),
+[data-theme="light"] .text-white:not(.btn):not(.btn *):not(.badge):not(.badge *) {
+  color: #0f172a !important;
+}
+
+html.light .text-white-50,
+body.light .text-white-50,
+[data-theme="light"] .text-white-50 {
+  color: #64748b !important;
+}
+
+html.dark .text-white,
+body.dark .text-white,
+[data-theme="dark"] .text-white {
+  color: #ffffff !important;
 }

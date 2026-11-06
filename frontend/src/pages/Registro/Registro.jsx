@@ -32,24 +32,24 @@ export default function Registro() {
   }
 
   return (
-    <div className="min-vh-100 d-flex align-items-center py-5" style={{ background: '#f8fafc' }}>
+    <div className="min-vh-100 d-flex align-items-center py-5" style={{ backgroundColor: 'var(--bg-page)', transition: 'background-color 0.25s ease' }}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="mb-3">
               <Link 
                 to="/" 
-                className="text-decoration-none text-secondary d-inline-flex align-items-center gap-2 fw-semibold small px-3 py-1.5 rounded-pill bg-white shadow-sm border"
-                style={{ transition: 'all 0.2s' }}
+                className="text-decoration-none text-secondary d-inline-flex align-items-center gap-2 fw-semibold small px-3 py-1.5 rounded-pill shadow-sm border"
+                style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)', color: 'var(--text-body)', transition: 'all 0.2s' }}
               >
                 <i className="bi bi-arrow-left"></i> Voltar ao início
               </Link>
             </div>
 
-            <div className="card p-4 p-sm-5 shadow-sm border-0 rounded-4">
+            <div className="card p-4 p-sm-5 shadow-sm rounded-4">
               <div className="text-center mb-4">
                 <span className="fs-1">👤</span>
-                <h2 className="fw-bold mt-2 text-slate-900">Criar conta</h2>
+                <h2 className="fw-bold mt-2" style={{ color: 'var(--text-title)' }}>Criar conta</h2>
                 <p className="text-muted small">Junte-se à plataforma Conecta Oportunidades</p>
               </div>
 

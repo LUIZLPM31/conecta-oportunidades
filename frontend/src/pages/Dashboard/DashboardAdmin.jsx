@@ -115,8 +115,8 @@ export default function DashboardAdmin() {
       <div className="d-flex align-items-center gap-3 mb-4">
         <span className="fs-2">⚙️</span>
         <div>
-          <h2 className="fw-bold mb-0 text-white">Painel Administrativo</h2>
-          <p className="text-white-50 mb-0">Gestão completa da plataforma</p>
+          <h2 className="fw-bold mb-0" style={{ color: 'var(--text-title)' }}>Painel Administrativo</h2>
+          <p className="mb-0 fw-medium" style={{ color: 'var(--text-muted)' }}>Gestão completa da plataforma</p>
         </div>
       </div>
 
@@ -132,8 +132,8 @@ export default function DashboardAdmin() {
             <div className={`card p-3 d-flex flex-row align-items-center gap-3 ${aba === s.id ? 'border-primary' : ''}`}>
               <i className={`bi ${s.icon} fs-2 ${s.cor}`}></i>
               <div>
-                <div className="fw-bold fs-4 text-white">{s.val}</div>
-                <div className="text-white-50 small">{s.label}</div>
+                <div className="fw-bold fs-4" style={{ color: 'var(--text-title)' }}>{s.val}</div>
+                <div className="small fw-semibold" style={{ color: 'var(--text-muted)' }}>{s.label}</div>
               </div>
             </div>
           </div>
@@ -160,7 +160,7 @@ export default function DashboardAdmin() {
           colunas={[
             { key: 'nome', label: 'Nome' },
             { key: 'email', label: 'E-mail' },
-            { key: 'tipoUsuario', label: 'Tipo', render: (v) => <Badge tipo="cand" valor={v} /> },
+            { key: 'tipoUsuario', label: 'Tipo', render: (v) => <Badge tipo="usuario" valor={v} /> },
             { key: 'cidade', label: 'Cidade' },
             { key: 'criadoEm', label: 'Cadastrado', render: (v) => v?.slice(0, 10) },
           ]}
@@ -260,7 +260,7 @@ export default function DashboardAdmin() {
               { key: 'instituicaoParceira', label: 'Instituição' },
               { key: 'cargaHoraria', label: 'Horas', render: (v) => v ? `${v}h` : '-' },
               { key: 'gratuito', label: 'Tipo', render: (v) => (
-                <span className={`badge ${v ? 'bg-success' : 'bg-warning text-dark'}`}>
+                <span className={`badge rounded-pill px-3 py-1 fw-semibold ${v ? 'badge-status-ativa' : 'badge-cand-pendente'}`}>
                   {v ? 'Gratuito' : 'Pago'}
                 </span>
               )},
@@ -292,7 +292,7 @@ export default function DashboardAdmin() {
             { key: 'nomeCandidato', label: 'Candidato' },
             { key: 'tituloVaga', label: 'Vaga' },
             { key: 'dataCandidatura', label: 'Data', render: (v) => v?.slice(0, 10) },
-            { key: 'status', label: 'Status', render: (v) => <Badge tipo="statusCand" valor={v} /> },
+            { key: 'status', label: 'Status', render: (v) => <Badge tipo="cand" valor={v} /> },
           ]}
           dados={candidaturas}
           acoes={(row) => (

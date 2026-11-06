@@ -9,9 +9,9 @@ const ODS = [
 
 export default function Home() {
   return (
-    <div className="bg-slate-50 min-h-screen font-sans text-slate-900 selection:bg-emerald-500/30">
+    <div className="min-h-screen font-sans selection:bg-emerald-500/30 transition-colors duration-200" style={{ backgroundColor: 'var(--bg-page)', color: 'var(--text-body)' }}>
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 px-6 py-24">
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 px-6 py-24 text-white">
         {/* Background elements */}
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/20 blur-[100px] rounded-full pointer-events-none" />
@@ -41,11 +41,11 @@ export default function Home() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center lg:justify-start">
-                <Link to="/vagas" className="group flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-8 py-4 font-semibold text-white shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:-translate-y-1 hover:bg-emerald-400 hover:shadow-emerald-500/50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-900 text-lg">
+                <Link to="/vagas" className="group flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-8 py-4 font-semibold text-white shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:-translate-y-1 hover:bg-emerald-400 hover:shadow-emerald-500/50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-900 text-lg text-decoration-none">
                   <Briefcase className="w-5 h-5" />
                   Ver Vagas
                 </Link>
-                <Link to="/registro" className="group flex items-center justify-center gap-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-white/20 hover:-translate-y-1 text-lg">
+                <Link to="/registro" className="group flex items-center justify-center gap-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-white/20 hover:-translate-y-1 text-lg text-decoration-none">
                   <Zap className="w-5 h-5 text-emerald-400" />
                   Cadastre-se Grátis
                 </Link>
@@ -53,22 +53,17 @@ export default function Home() {
             </div>
 
             <div className="flex justify-center lg:justify-end relative mt-6 lg:mt-0">
-              {/* Moldura moderna e humanizada com a foto do trabalhador */}
               <div className="relative group max-w-md lg:max-w-lg w-full">
-                {/* Glow decorativo de fundo */}
                 <div className="absolute -inset-2 bg-gradient-to-r from-emerald-500/30 to-teal-400/20 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition duration-500"></div>
                 
-                {/* Container da foto com cantos arredondados e borda translúcida */}
                 <div className="relative rounded-3xl overflow-hidden border-2 border-white/15 shadow-2xl shadow-emerald-950/50 bg-slate-800">
                   <img 
                     src={heroWorkerImage} 
                     alt="Trabalhador capacitado segurando notebook e sorrindo feliz" 
                     className="w-full h-[380px] sm:h-[460px] object-cover object-top transition duration-500 group-hover:scale-105"
                   />
-                  {/* Gradiente suave na base da foto para contraste */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none"></div>
 
-                  {/* Card flutuante institucional inferior no estilo Senac/Recode */}
                   <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-slate-900/85 backdrop-blur-md border border-white/15 flex items-center justify-between shadow-xl">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400">
@@ -85,14 +80,13 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Badge flutuante superior com ícone de brilho */}
-                <div className="absolute -top-4 -left-3 sm:-left-5 px-4 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md border border-white shadow-xl shadow-slate-950/30 flex items-center gap-3 z-30 animate-pulse">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold">
+                <div className="absolute -top-4 -left-3 sm:-left-5 px-4 py-2.5 rounded-2xl bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border border-white/20 shadow-xl flex items-center gap-3 z-30 animate-pulse">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 font-bold">
                     <Sparkles className="w-4 h-4" />
                   </div>
                   <div className="text-left">
-                    <div className="text-xs font-bold text-slate-900 leading-none">Novas Turmas</div>
-                    <div className="text-[11px] text-emerald-700 font-semibold mt-0.5">100% Gratuitas</div>
+                    <div className="text-xs font-bold text-slate-900 dark:text-white leading-none">Novas Turmas</div>
+                    <div className="text-[11px] text-emerald-700 dark:text-emerald-400 font-semibold mt-0.5">100% Gratuitas</div>
                   </div>
                 </div>
               </div>
@@ -107,16 +101,16 @@ export default function Home() {
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: Briefcase, val: 'Vagas', desc: 'Oportunidades de emprego', corIcone: 'text-emerald-600', bgIcone: 'bg-emerald-50', hover: 'hover:border-emerald-200' },
-              { icon: GraduationCap, val: 'Cursos', desc: 'Capacitações gratuitas', corIcone: 'text-violet-600', bgIcone: 'bg-violet-50', hover: 'hover:border-violet-200' },
-              { icon: Users, val: 'Conexões', desc: 'Candidatos e empresas', corIcone: 'text-amber-600', bgIcone: 'bg-amber-50', hover: 'hover:border-amber-200' },
+              { icon: Briefcase, val: 'Vagas', desc: 'Oportunidades de emprego', corIcone: 'text-emerald-500', bgIcone: 'bg-emerald-500/15' },
+              { icon: GraduationCap, val: 'Cursos', desc: 'Capacitações gratuitas', corIcone: 'text-violet-500', bgIcone: 'bg-violet-500/15' },
+              { icon: Users, val: 'Conexões', desc: 'Candidatos e empresas', corIcone: 'text-amber-500', bgIcone: 'bg-amber-500/15' },
             ].map((s, idx) => (
-              <div key={idx} className={`group flex flex-col items-center text-center rounded-2xl bg-white p-8 shadow-lg shadow-slate-200/50 border border-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 ${s.hover}`}>
+              <div key={idx} className="group flex flex-col items-center text-center p-8 stat-card">
                 <div className={`mb-5 inline-flex h-16 w-16 items-center justify-center rounded-2xl ${s.bgIcone} transition-transform duration-300 group-hover:scale-110`}>
                   <s.icon className={`w-8 h-8 ${s.corIcone}`} />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-2">{s.val}</h3>
-                <p className="text-slate-500 font-medium">{s.desc}</p>
+                <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-title)' }}>{s.val}</h3>
+                <p className="font-medium mb-0" style={{ color: 'var(--text-muted)' }}>{s.desc}</p>
               </div>
             ))}
           </div>
@@ -124,21 +118,25 @@ export default function Home() {
       </section>
 
       {/* ODS Section */}
-      <section className="py-24 px-6 bg-slate-50">
+      <section className="py-24 px-6 home-section-ods">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Nosso Impacto Social</h2>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto">Alinhados às Metas Globais da ONU para um futuro mais próspero e igualitário.</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight" style={{ color: 'var(--text-title)' }}>
+              Nosso Impacto Social
+            </h2>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--text-muted)' }}>
+              Alinhados às Metas Globais da ONU para um futuro mais próspero e igualitário.
+            </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center max-w-4xl mx-auto">
             {ODS.map((o) => (
-              <div key={o.num} className="group flex flex-col items-center text-center rounded-3xl bg-white p-10 border border-slate-100 shadow-md shadow-slate-200/40 transition-all duration-300 hover:shadow-2xl hover:shadow-slate-200/60 hover:-translate-y-1">
+              <div key={o.num} className="group flex flex-col items-center text-center p-10 ods-card">
                 <div className={`w-24 h-24 rounded-full flex items-center justify-center mb-6 text-white text-3xl font-black shadow-lg ${o.cor} transition-transform duration-500 group-hover:rotate-[360deg]`}>
                   {o.num}
                 </div>
-                <h5 className="text-xl font-bold text-slate-800 mb-3">Objetivo {o.num}</h5>
-                <p className="text-slate-600 leading-relaxed font-medium">{o.texto}</p>
+                <h5 className="text-xl font-bold mb-3" style={{ color: 'var(--text-title)' }}>Objetivo {o.num}</h5>
+                <p className="leading-relaxed font-medium mb-0" style={{ color: 'var(--text-muted)' }}>{o.texto}</p>
               </div>
             ))}
           </div>
@@ -146,7 +144,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 relative overflow-hidden bg-slate-900">
+      <section className="py-24 px-6 relative overflow-hidden bg-slate-900 text-white">
         <div className="absolute inset-0 bg-emerald-900/10" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" />
         
@@ -161,21 +159,16 @@ export default function Home() {
             Seja candidato buscando uma nova oportunidade ou empresa em busca de talentos. Junte-se a nós hoje.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/registro" className="group flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-8 py-4 font-semibold text-white shadow-lg shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-emerald-400 hover:shadow-emerald-500/40 text-lg">
+            <Link to="/registro" className="group flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-8 py-4 font-semibold text-white shadow-lg shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-emerald-400 hover:shadow-emerald-500/40 text-lg text-decoration-none">
               Criar conta gratuita
               <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-            <Link to="/cursos" className="group flex items-center justify-center gap-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-white/20 hover:-translate-y-1 text-lg">
+            <Link to="/cursos" className="group flex items-center justify-center gap-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-white/20 hover:-translate-y-1 text-lg text-decoration-none">
               Explorar cursos
             </Link>
           </div>
         </div>
       </section>
-      
-      {/* Add keyframes for float animation in index.css or via Tailwind arbitrary variants, 
-          but Tailwind doesn't have float out of the box, we can add it to tailwind.config.js or style it inline.
-          I'll just add it to tailwind config or keep standard transition. 
-          Actually, I used `animate-[float_6s_ease-in-out_infinite]`, I should update tailwind.config.js. */}
     </div>
   )
 }
