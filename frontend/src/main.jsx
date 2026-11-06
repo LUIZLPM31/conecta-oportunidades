@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <ThemeProvider>
         <AuthProvider>
           <App />
-          <ToastContainer position="top-right" autoClose={3000} />
+          <ToastContainer position="top-right" autoClose={3000} theme="colored" />
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>

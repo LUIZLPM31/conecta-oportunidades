@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="min-h-screen font-sans selection:bg-emerald-500/30 transition-colors duration-200" style={{ backgroundColor: 'var(--bg-page)', color: 'var(--text-body)' }}>
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 px-6 py-24 text-white">
+      <section className="hero-dark-banner relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 px-6 py-24 text-white">
         {/* Background elements */}
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/20 blur-[100px] rounded-full pointer-events-none" />
@@ -144,7 +144,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 relative overflow-hidden bg-slate-900 text-white">
+      <section className="cta-dark-banner py-24 px-6 relative overflow-hidden bg-slate-900 text-white">
         <div className="absolute inset-0 bg-emerald-900/10" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" />
         

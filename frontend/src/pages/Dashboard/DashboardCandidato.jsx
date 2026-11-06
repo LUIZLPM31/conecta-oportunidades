@@ -53,8 +53,8 @@ export default function DashboardCandidato() {
       <div className="d-flex align-items-center gap-3 mb-4">
         <span className="fs-2">👤</span>
         <div>
-          <h2 className="fw-bold mb-0" style={{ color: 'var(--text-title)' }}>Olá, {user?.nome?.split(' ')[0]}!</h2>
-          <p className="mb-0 fw-medium" style={{ color: 'var(--text-muted)' }}>Painel do Candidato</p>
+          <h2 className="fw-bold mb-0 contrast-text">Olá, {user?.nome?.split(' ')[0]}!</h2>
+          <p className="mb-0 fw-medium dashboard-subtitle">Painel do Candidato</p>
         </div>
       </div>
 
@@ -75,8 +75,8 @@ export default function DashboardCandidato() {
             >
               <i className={`bi ${s.icon} fs-2 ${s.cor}`}></i>
               <div>
-                <div className="fw-bold fs-4" style={{ color: 'var(--text-title)' }}>{s.val}</div>
-                <div className="small fw-semibold" style={{ color: 'var(--text-muted)' }}>{s.label}</div>
+                <div className="fw-bold fs-4 card-counter-val">{s.val}</div>
+                <div className="small fw-bold card-counter-label">{s.label}</div>
               </div>
             </div>
           </div>

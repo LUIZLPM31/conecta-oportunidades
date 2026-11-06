@@ -200,8 +200,8 @@ export default function DashboardEmpresa() {
         <div className="d-flex align-items-center gap-3">
           <span className="fs-2">🏢</span>
           <div>
-            <h2 className="fw-bold mb-0" style={{ color: 'var(--text-title)' }}>{user?.nome}</h2>
-            <p className="mb-0 fw-medium" style={{ color: 'var(--text-muted)' }}>Painel da Empresa</p>
+            <h2 className="fw-bold mb-0 contrast-text">{user?.nome}</h2>
+            <p className="mb-0 fw-medium dashboard-subtitle">Painel da Empresa</p>
           </div>
         </div>
 
@@ -255,8 +255,8 @@ export default function DashboardEmpresa() {
             <div className="card p-3 d-flex flex-row align-items-center gap-3 h-100 shadow-sm">
               <i className={`bi ${s.icon} fs-2 ${s.cor}`}></i>
               <div>
-                <div className="fw-bold fs-4" style={{ color: 'var(--text-title)' }}>{s.val}</div>
-                <div className="small fw-semibold" style={{ color: 'var(--text-muted)' }}>{s.label}</div>
+                <div className="fw-bold fs-4 card-counter-val">{s.val}</div>
+                <div className="small fw-bold card-counter-label">{s.label}</div>
                 {s.sub && (
                   <div className={`badge ${totalPendentes > 0 ? 'bg-danger' : 'bg-secondary'} rounded-pill mt-1`} style={{ fontSize: '0.68rem' }}>
                     {s.sub}

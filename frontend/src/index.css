@@ -29,19 +29,19 @@ body.light,
   --border-color: #e2e8f0;
   --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 
-  --text-title: #0f172a;
-  --text-body: #1e293b;
-  --text-muted: #64748b;
+  --text-title: #000000;
+  --text-body: #000000;
+  --text-muted: #475569;
 
   --table-bg: #ffffff;
   --table-head-bg: #f1f5f9;
   --table-hover: #f8fafc;
-  --table-text: #0f172a;
+  --table-text: #000000;
   --table-border: #e2e8f0;
 
   --input-bg: #ffffff;
   --input-border: #cbd5e1;
-  --input-text: #0f172a;
+  --input-text: #000000;
 
   /* Aliases para compatibilidade */
   --bg-app: #f8fafc;
@@ -386,7 +386,7 @@ html.dark .btn-close {
 }
 
 /* ============================================================
-   8. NAV TABS E FOOTER
+   8. NAV TABS E FOOTER (Alto Contraste: Branco no Dark, Preto no Light)
    ============================================================ */
 
 .nav-tabs {
@@ -394,22 +394,28 @@ html.dark .btn-close {
 }
 
 .nav-tabs .nav-link {
-  color: var(--text-muted) !important;
-  opacity: 0.9;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
   border-color: transparent !important;
   transition: all 0.2s ease;
 }
 
+html.light .nav-tabs .nav-link,
+body.light .nav-tabs .nav-link,
+[data-theme="light"] .nav-tabs .nav-link {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
 .nav-tabs .nav-link:hover {
-  color: var(--text-title) !important;
-  opacity: 1;
-  background-color: rgba(125, 125, 125, 0.08);
-  border-color: transparent !important;
+  opacity: 1 !important;
+  background-color: rgba(125, 125, 125, 0.12) !important;
 }
 
 .nav-tabs .nav-link.active {
   color: var(--primary) !important;
-  opacity: 1;
+  font-weight: 700 !important;
   background-color: var(--bg-card) !important;
   border-color: var(--border-color) var(--border-color) var(--bg-card) !important;
 }
@@ -428,18 +434,93 @@ footer {
 }
 
 /* ============================================================
-   9. PROTEÇÃO GLOBAL CONTRA TEXTO INVISÍVEL NO TEMA CLARO
+   9. TEXTOS DE CONTRASTE TOTAL (BRANCO NO ESCURO, PRETO NO CLARO)
    ============================================================ */
-html.light .text-white:not(.btn):not(.btn *):not(.badge):not(.badge *),
-body.light .text-white:not(.btn):not(.btn *):not(.badge):not(.badge *),
-[data-theme="light"] .text-white:not(.btn):not(.btn *):not(.badge):not(.badge *) {
-  color: #0f172a !important;
+
+.contrast-text,
+.dashboard-subtitle,
+.card-counter-label,
+.card-counter-val {
+  color: #ffffff !important;
+  transition: color 0.2s ease;
 }
 
-html.light .text-white-50,
-body.light .text-white-50,
-[data-theme="light"] .text-white-50 {
-  color: #64748b !important;
+html.light .contrast-text,
+html.light .dashboard-subtitle,
+html.light .card-counter-label,
+html.light .card-counter-val,
+body.light .contrast-text,
+body.light .dashboard-subtitle,
+body.light .card-counter-label,
+body.light .card-counter-val,
+[data-theme="light"] .contrast-text,
+[data-theme="light"] .dashboard-subtitle,
+[data-theme="light"] .card-counter-label,
+[data-theme="light"] .card-counter-val {
+  color: #000000 !important;
+}
+
+/* Cabeçalhos de tabelas: Branco no Dark, Preto no Light */
+.table thead th {
+  color: #ffffff !important;
+}
+
+html.light .table thead th,
+body.light .table thead th,
+[data-theme="light"] .table thead th {
+  color: #000000 !important;
+}
+
+/* Banners Escuros da Home (Hero e CTA): SEMPRE com textos brancos em qualquer tema */
+.hero-dark-banner,
+.cta-dark-banner {
+  color: #ffffff !important;
+}
+
+.hero-dark-banner h1,
+.hero-dark-banner h1 span:not([class*="bg-clip-text"]),
+.hero-dark-banner p:not([class*="text-emerald"]):not([class*="text-slate-300"]),
+.hero-dark-banner a,
+.hero-dark-banner .text-white,
+.cta-dark-banner h1,
+.cta-dark-banner h2,
+.cta-dark-banner p,
+.cta-dark-banner a {
+  color: #ffffff !important;
+}
+
+html.light .hero-dark-banner h1,
+html.light .hero-dark-banner h1 span:not([class*="bg-clip-text"]),
+html.light .hero-dark-banner p:not([class*="text-emerald"]):not([class*="text-slate-300"]),
+html.light .hero-dark-banner a,
+html.light .hero-dark-banner .text-white,
+html.light .cta-dark-banner h1,
+html.light .cta-dark-banner h2,
+html.light .cta-dark-banner p,
+html.light .cta-dark-banner a,
+body.light .hero-dark-banner h1,
+body.light .hero-dark-banner h1 span:not([class*="bg-clip-text"]),
+body.light .hero-dark-banner p:not([class*="text-emerald"]):not([class*="text-slate-300"]),
+body.light .hero-dark-banner a,
+body.light .hero-dark-banner .text-white,
+body.light .cta-dark-banner h1,
+body.light .cta-dark-banner h2,
+body.light .cta-dark-banner p,
+body.light .cta-dark-banner a {
+  color: #ffffff !important;
+}
+
+/* Proteção global de suporte: transforma text-white em preto no tema claro APENAS fora de banners escuros e botões */
+html.light .text-white:not(.hero-dark-banner *):not(.cta-dark-banner *):not(.btn):not(.btn *):not(.badge):not(.badge *),
+body.light .text-white:not(.hero-dark-banner *):not(.cta-dark-banner *):not(.btn):not(.btn *):not(.badge):not(.badge *),
+[data-theme="light"] .text-white:not(.hero-dark-banner *):not(.cta-dark-banner *):not(.btn):not(.btn *):not(.badge):not(.badge *) {
+  color: #000000 !important;
+}
+
+html.light .text-white-50:not(.hero-dark-banner *):not(.cta-dark-banner *),
+body.light .text-white-50:not(.hero-dark-banner *):not(.cta-dark-banner *),
+[data-theme="light"] .text-white-50:not(.hero-dark-banner *):not(.cta-dark-banner *) {
+  color: #000000 !important;
 }
 
 html.dark .text-white,
