@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
+import { GraduationCap, Sparkles } from 'lucide-react'
 import CardCurso from '../../components/CardCurso/CardCurso'
 import { capacitacaoService } from '../../services/services'
 
@@ -22,10 +23,24 @@ export default function Cursos() {
 
   return (
     <div className="container py-5">
-      <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
-        <div>
-          <h1 className="fw-bold mb-1">Capacitações Profissionais</h1>
-          <p className="mb-0 contrast-text">Cursos gratuitos para impulsionar sua carreira</p>
+      <div className="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3 page-header-animate">
+        <div className="d-flex align-items-center gap-3">
+          <div className="page-header-icon-box d-flex align-items-center justify-content-center rounded-4 bg-emerald-500/15 border border-emerald-500/30 text-emerald-500 p-3">
+            <GraduationCap className="w-8 h-8" />
+          </div>
+          <div>
+            <div className="d-inline-flex align-items-center gap-1.5 px-2.5 py-0.5 rounded-pill bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 fw-semibold mb-1" style={{ fontSize: '0.75rem' }}>
+              <Sparkles className="w-3.5 h-3.5" />
+              Qualificação gratuita
+            </div>
+            <h1 className="fw-extrabold mb-1 tracking-tight" style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.25rem)' }}>
+              Capacitações <span className="page-title-highlight">Profissionais</span>
+            </h1>
+            <p className="mb-2 contrast-text opacity-90">
+              Cursos gratuitos para impulsionar sua carreira
+            </p>
+            <div className="page-header-accent-bar"></div>
+          </div>
         </div>
         <input
           type="text"

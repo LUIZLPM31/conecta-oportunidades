@@ -173,6 +173,10 @@ nav.navbar-theme {
   color: var(--text-title) !important;
 }
 
+.card i:not(.text-success):not(.text-danger):not(.text-warning):not(.text-primary):not(.text-info):not([class*="btn"] *) {
+  color: var(--text-title) !important;
+}
+
 /* ============================================================
    5. TABELAS (TOTALMENTE DINÂMICAS LIGHT / DARK)
    ============================================================ */
@@ -521,6 +525,73 @@ html.light .text-white-50:not(.hero-dark-banner *):not(.cta-dark-banner *),
 body.light .text-white-50:not(.hero-dark-banner *):not(.cta-dark-banner *),
 [data-theme="light"] .text-white-50:not(.hero-dark-banner *):not(.cta-dark-banner *) {
   color: #000000 !important;
+}
+
+/* ============================================================
+   10. CABEÇALHOS DE PÁGINAS COM DESTAQUE E ANIMAÇÃO SUAVE
+   ============================================================ */
+
+@keyframes pageHeaderReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtleGlowPulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+  }
+  50% {
+    box-shadow: 0 4px 22px rgba(16, 185, 129, 0.3);
+  }
+}
+
+.page-header-animate {
+  animation: pageHeaderReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.page-header-icon-box {
+  animation: subtleGlowPulse 3.5s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.page-header-animate:hover .page-header-icon-box {
+  transform: scale(1.06) rotate(-3deg);
+}
+
+.page-title-highlight {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+html.light .page-title-highlight,
+body.light .page-title-highlight,
+[data-theme="light"] .page-title-highlight {
+  background: linear-gradient(135deg, #047857 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-header-accent-bar {
+  height: 4px;
+  width: 56px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #10b981, rgba(16, 185, 129, 0.2));
+  transition: width 0.35s ease;
+}
+
+.page-header-animate:hover .page-header-accent-bar {
+  width: 84px;
 }
 
 html.dark .text-white,
