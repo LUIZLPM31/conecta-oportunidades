@@ -25,7 +25,7 @@ export default function Cursos() {
       <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
         <div>
           <h1 className="fw-bold mb-1">Capacitações Profissionais</h1>
-          <p className="text-muted mb-0">Cursos gratuitos para impulsionar sua carreira</p>
+          <p className="mb-0 contrast-text">Cursos gratuitos para impulsionar sua carreira</p>
         </div>
         <input
           type="text"

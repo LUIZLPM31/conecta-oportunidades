@@ -15,7 +15,7 @@ export default function CardVaga({ vaga, onCandidatar, mostrarBotao = true }) {
           <Badge tipo="modalidade" valor={vaga.modalidade} />
         </div>
 
-        <p className="text-muted small mb-1">
+        <p className="small mb-1">
           <i className="bi bi-building me-1"></i>
           {vaga.nomeEmpresa}
         </p>
@@ -27,14 +27,14 @@ export default function CardVaga({ vaga, onCandidatar, mostrarBotao = true }) {
           </p>
         )}
 
-        <p className="card-text text-muted small flex-grow-1">
+        <p className="card-text small flex-grow-1">
           {vaga.descricao?.slice(0, 120)}{vaga.descricao?.length > 120 ? '...' : ''}
         </p>
 
         {vaga.requisitos && (
           <p className="small mt-2">
             <span className="fw-semibold">Requisitos: </span>
-            <span className="text-muted">{vaga.requisitos.slice(0, 80)}...</span>
+            <span>{vaga.requisitos.slice(0, 80)}...</span>
           </p>
         )}
 

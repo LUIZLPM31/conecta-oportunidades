@@ -41,7 +41,7 @@ export default function Vagas() {
       <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
         <div>
           <h1 className="fw-bold mb-1">Vagas disponíveis</h1>
-          <p className="text-muted mb-0">{vagasFiltradas.length} oportunidade(s) encontrada(s)</p>
+          <p className="mb-0 contrast-text">{vagasFiltradas.length} oportunidade(s) encontrada(s)</p>
         </div>
 
         <div className="d-flex gap-2 flex-wrap">

@@ -7,7 +7,7 @@ export default function CardCurso({ curso }) {
           <h5 className="card-title mb-0 fw-semibold">{curso.tituloCurso}</h5>
         </div>
 
-        <p className="text-muted small mb-1">
+        <p className="small mb-1">
           <i className="bi bi-building me-1"></i>
           {curso.instituicaoParceira || 'Parceiro não informado'}
         </p>
@@ -21,7 +21,7 @@ export default function CardCurso({ curso }) {
           </span>
         </p>
 
-        <p className="card-text text-muted small flex-grow-1">
+        <p className="card-text small flex-grow-1">
           {curso.descricao?.slice(0, 120)}{curso.descricao?.length > 120 ? '...' : ''}
         </p>
 
