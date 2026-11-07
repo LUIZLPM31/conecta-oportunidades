@@ -7,7 +7,7 @@ export default function Footer() {
           {' '}— Alinhado às ODS 8 e ODS 10 da ONU
         </p>
         <p className="mb-0 small text-muted">
-          Programa Transforma Futuros • {new Date().getFullYear()}
+          Programa Reconecta • {new Date().getFullYear()}
         </p>
       </div>
     </footer>
