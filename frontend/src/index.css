@@ -390,7 +390,7 @@ html.dark .btn-close {
 }
 
 /* ============================================================
-   8. NAV TABS E FOOTER (Alto Contraste: Branco no Dark, Preto no Light)
+   8. NAV TABS E FOOTER
    ============================================================ */
 
 .nav-tabs {
@@ -438,7 +438,7 @@ footer {
 }
 
 /* ============================================================
-   9. TEXTOS DE CONTRASTE TOTAL (BRANCO NO ESCURO, PRETO NO CLARO)
+   9. TEXTOS DE CONTRASTE 
    ============================================================ */
 
 .contrast-text,
@@ -475,7 +475,7 @@ body.light .table thead th,
   color: #000000 !important;
 }
 
-/* Banners Escuros da Home (Hero e CTA): SEMPRE com textos brancos em qualquer tema */
+/* Banners Escuros da Home : SEMPRE com textos brancos em qualquer tema */
 .hero-dark-banner,
 .cta-dark-banner {
   color: #ffffff !important;
@@ -528,7 +528,7 @@ body.light .text-white-50:not(.hero-dark-banner *):not(.cta-dark-banner *),
 }
 
 /* ============================================================
-   10. CABEÇALHOS DE PÁGINAS COM DESTAQUE E ANIMAÇÃO SUAVE
+   10. CABEÇALHOS DE PÁGINAS 
    ============================================================ */
 
 @keyframes pageHeaderReveal {
